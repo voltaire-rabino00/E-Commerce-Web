@@ -41,10 +41,14 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                 <div class="sidebar-sticky pt-3">
                     <h4 class="text-center mb-3">Welcome,<?= htmlspecialchars($admin['name']) ?></h4>
                     <div class="d-flex flex-column align-items-center mb-3">
-                        <img id="profilePreview" src="<?= htmlspecialchars($profileImg) ?>" alt="Profile" class="profile-img mb-2">
-                        <form class="profile-upload-form mt-2" action="../actions/upload_profile.php" method="POST" enctype="multipart/form-data">
-                            <input type="file" id="profileImgInput" name="profile_pic" accept="image/*" required class="profile-img-input">
-                            <button type="button" class="profile-upload-btn btn btn-primary mt-2" id="triggerProfileUpload">
+                        <img id="profilePreview" src="<?= htmlspecialchars($profileImg) ?>" alt="Profile"
+                            class="profile-img mb-2">
+                        <form class="profile-upload-form mt-2" action="../actions/upload_profile.php" method="POST"
+                            enctype="multipart/form-data">
+                            <input type="file" id="profileImgInput" name="profile_pic" accept="image/*" required
+                                class="profile-img-input">
+                            <button type="button" class="profile-upload-btn btn btn-primary mt-2"
+                                id="triggerProfileUpload">
                                 <?= empty($admin['profile_pic']) ? 'Upload Profile Picture' : 'Update Profile Picture' ?>
                             </button>
                             <button type="submit" id="submitProfileBtn" class="profile-submit-btn"></button>
@@ -61,7 +65,8 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                 </div>
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h2>Data Analytics</h2>
                 </div>
                 <div class="row">
@@ -109,23 +114,18 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
             </main>
         </div>
     </div>
+    <div id="loadingModal_logout">
+        <div class="modal-content">
+            <img src="../assets/gif/Spinner-3.gif" alt="Loading...">
+            <div class="loading-text">Logging out...</div>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../assets/js/app.js"></script>
-    <script>
-        // When the button is clicked, open the file picker
-        document.getElementById('triggerProfileUpload').addEventListener('click', function() {
-            document.getElementById('profileImgInput').click();
-        });
-        // When a file is selected, show the submit button
-        document.getElementById('profileImgInput').addEventListener('change', function() {
-            document.getElementById('submitProfileBtn').style.display = 'inline-block';
-            document.getElementById('submitProfileBtn').textContent = 'Save';
-            document.getElementById('submitProfileBtn').className = 'btn btn-success mt-2';
-        });
-    </script>
+    <script src="../assets/js/update_profile.js"></script>
 </body>
 
 </html>
