@@ -41,14 +41,13 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                 <div class="sidebar-sticky pt-3">
                     <h4 class="text-center mb-3">Welcome,<?= htmlspecialchars($admin['name']) ?></h4>
                     <div class="d-flex flex-column align-items-center mb-3">
-                        <img id="profilePreview" src="<?= htmlspecialchars($profileImg) ?>" alt="Profile" class="mb-2"
-                            style="box-shadow: 0 4px 18px rgba(0,147,233,0.13); border-radius: 50%; width: 96px; height: 96px; object-fit: cover; border: 4px solid #fff; background: #fff;">
-                        <form class="mt-2" action="../actions/upload_profile.php" method="POST" enctype="multipart/form-data">
-                            <input type="file" id="profileImgInput" name="profile_pic" accept="image/*" required style="display:none;">
-                            <button type="button" class="btn btn-primary mt-2" id="triggerProfileUpload">
+                        <img id="profilePreview" src="<?= htmlspecialchars($profileImg) ?>" alt="Profile" class="profile-img mb-2">
+                        <form class="profile-upload-form mt-2" action="../actions/upload_profile.php" method="POST" enctype="multipart/form-data">
+                            <input type="file" id="profileImgInput" name="profile_pic" accept="image/*" required class="profile-img-input">
+                            <button type="button" class="profile-upload-btn btn btn-primary mt-2" id="triggerProfileUpload">
                                 <?= empty($admin['profile_pic']) ? 'Upload Profile Picture' : 'Update Profile Picture' ?>
                             </button>
-                            <button type="submit" id="submitProfileBtn" style="display:none;"></button>
+                            <button type="submit" id="submitProfileBtn" class="profile-submit-btn"></button>
                         </form>
                     </div>
                     <ul class="nav flex-column mt-4">

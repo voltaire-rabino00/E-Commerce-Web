@@ -14,6 +14,7 @@ if (isset($_SESSION['admin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin</title>
     <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/modal.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
 
@@ -21,7 +22,7 @@ if (isset($_SESSION['admin'])) {
 
 <body>
     <!-- Login Form -->
-    <form action="login_process.php" method="POST" autocomplete="off">
+    <form id="loginForm" action="login_process.php" method="POST" autocomplete="off">
         <div class="admin-icon">
             <i class="bi bi-person-circle"></i>
         </div>
@@ -35,6 +36,15 @@ if (isset($_SESSION['admin'])) {
 
         <button type="submit">Login</button>
     </form>
+    <!-- Loading Modal -->
+    <div id="loadingModal">
+        <div class="modal-content">
+            <img src="../assets/gif/Spinner-3.gif" alt="Loading...">
+            <div class="loading-text">Logging in...</div>
+        </div>
+    </div>
+    <script src="../assets/js/modalGif.js"></script>
+    </script>
 
 </body>
 
