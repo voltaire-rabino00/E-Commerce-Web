@@ -39,7 +39,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar p-0">
                 <div class="sidebar-sticky pt-3">
-                    <h4 class="text-center mb-3">Welcome <?= htmlspecialchars($admin['name']) ?></h4>
+                    <h4 class="text-center mb-3">Welcome,<?= htmlspecialchars($admin['name']) ?></h4>
                     <div class="d-flex flex-column align-items-center mb-3">
                         <img id="profilePreview" src="<?= htmlspecialchars($profileImg) ?>" alt="Profile" class="mb-2"
                             style="box-shadow: 0 4px 18px rgba(0,147,233,0.13); border-radius: 50%; width: 96px; height: 96px; object-fit: cover; border: 4px solid #fff; background: #fff;">
