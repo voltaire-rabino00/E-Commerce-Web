@@ -1,10 +1,26 @@
-<?php 
+<?php
 include '../includes/auth.php'; 
 include '../includes/db.php'; 
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+if (!isset($_SESSION['admin'])) {
+    header("Location: ../actions/login.php");
+    exit();
+}
+
+$username = $_SESSION['admin'];
+
+$sql = "SELECT * FROM admins WHERE username = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+$admin = $result->fetch_assoc();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,16 +37,45 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar p-0">
                 <div class="sidebar-sticky pt-3">
-                    <h4 class="text-center">Admin Dashboard</h4>
+                    <div class="profile-upload">
+                        <?php
+                        $profileImg = '../assets/profile/default.png';
+                        if (isset($admin['profile_pic']) && !empty($admin['profile_pic'])) {
+                            $imgPath = ltrim($admin['profile_pic'], './');
+                            if (strpos($imgPath, 'assets/') === 0) {
+                                $profileImg = '../' . $imgPath;
+                            } elseif (strpos($imgPath, '../assets/') === 0) {
+                                $profileImg = $imgPath;
+                            } elseif (filter_var($imgPath, FILTER_VALIDATE_URL)) {
+                                $profileImg = $imgPath;
+                            } else {
+                                $profileImg = '../assets/profile/' . $imgPath;
+                            }
+                        }
+                        ?>
+                        <img id="profilePreview" src="<?= $profileImg ?>" alt="Profile" class="mb-2">
+                        <form class="mt-2" action="../actions/upload_profile.php" method="POST" enctype="multipart/form-data">
+                            <label for="profileImgInput">Choose Image</label>
+                            <input type="file" id="profileImgInput" name="profile_pic" accept="image/*" required>
+                            <button type="submit">
+                                <?php if (isset($admin['profile_pic']) && !empty($admin['profile_pic'])): ?>
+                                    Update Profile Picture
+                                <?php else: ?>
+                                    Upload
+                                <?php endif; ?>
+                            </button>
+                        </form>
+                    </div>
+                    <h4 class="text-center">Welcome <?= $admin['name']; ?></h4>
                     <ul class="nav flex-column mt-4">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Users</a>
+                            <a class="nav-link" href="#">User Management</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Products</a>
+                            <a class="nav-link" href="#">Product Management</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Orders</a>
@@ -96,6 +141,15 @@ if (session_status() === PHP_SESSION_NONE) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../assets/js/app.js"></script>
+    <script>
+        // Profile image preview
+        document.getElementById('profileImgInput').addEventListener('change', function(e) {
+            const [file] = e.target.files;
+            if (file) {
+                document.getElementById('profilePreview').src = URL.createObjectURL(file);
+            }
+        });
+    </script>
 </body>
 
 </html>
