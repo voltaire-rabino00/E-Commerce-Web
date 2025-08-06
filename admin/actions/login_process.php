@@ -1,5 +1,5 @@
 <?php
-include '../includes/db.php';  // konek sa database
+include '../includes/db.php';
 session_start();
 
 $username = $_POST['username'];
@@ -12,7 +12,7 @@ if ($result && mysqli_num_rows($result) == 1) {
     $admin = mysqli_fetch_assoc($result);
     if (hash('sha256', $password) == $admin['password']) {
         $_SESSION['admin'] = $admin['username'];
-        header("Location: ../pages/dashboard.php");  // redirect sa dashboard
+        header("Location: ../pages/dashboard.php");
     } else {
         echo "Invalid password!";
     }
