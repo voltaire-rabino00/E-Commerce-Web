@@ -32,6 +32,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
     <title>My Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/modal.css">
 </head>
 
 <body>
@@ -59,7 +60,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                         <li class="nav-item"><a class="nav-link" href="#">User Management</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Product Management</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
-                        <li class="nav-item"><a class="nav-link text-danger" href="../actions/logout.php">Logout</a>
+                        <li class="nav-item">  <a class="nav-link text-danger" href="../actions/logout.php" id="logoutLink">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -116,9 +117,9 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
     </div>
     <div id="loadingModal_logout">
         <div class="modal-content">
-            <img src="../assets/gif/Spinner-3.gif" alt="Loading...">
-            <div class="loading-text">Logging out...</div>
-        </div>
+            <img src="../assets/gif/Spinner-3.gif" alt="Loading..."> 
+            <div id="loadingText">Logging out...</div>
+        </div>     <!-- TO DO: Add a logout gif functionality -->
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -126,6 +127,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../assets/js/app.js"></script>
     <script src="../assets/js/update_profile.js"></script>
+    <script src="../assets/js/modalGif.js"></script>
 </body>
 
 </html>
