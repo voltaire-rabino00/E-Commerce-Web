@@ -1,6 +1,7 @@
 <?php
-include '../includes/auth.php'; 
-include '../includes/db.php'; 
+include '../includes/auth.php';
+include '../includes/db.php';
+include '../actions/profile_image.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -19,8 +20,9 @@ $stmt->bind_param("s", $username);
 $stmt->execute();
 $result = $stmt->get_result();
 $admin = $result->fetch_assoc();
-?>
 
+$profileImg = getProfileImage($admin['profile_pic'] ?? null);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +31,7 @@ $admin = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css"> <!-- Your custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
@@ -38,57 +40,27 @@ $admin = $result->fetch_assoc();
             <nav class="col-md-2 d-none d-md-block bg-light sidebar p-0">
                 <div class="sidebar-sticky pt-3">
                     <div class="profile-upload">
-                        <?php
-                        $profileImg = '../assets/profile/default.png';
-                        if (isset($admin['profile_pic']) && !empty($admin['profile_pic'])) {
-                            $imgPath = ltrim($admin['profile_pic'], './');
-                            if (strpos($imgPath, 'assets/') === 0) {
-                                $profileImg = '../' . $imgPath;
-                            } elseif (strpos($imgPath, '../assets/') === 0) {
-                                $profileImg = $imgPath;
-                            } elseif (filter_var($imgPath, FILTER_VALIDATE_URL)) {
-                                $profileImg = $imgPath;
-                            } else {
-                                $profileImg = '../assets/profile/' . $imgPath;
-                            }
-                        }
-                        ?>
-                        <img id="profilePreview" src="<?= $profileImg ?>" alt="Profile" class="mb-2">
+                        <img id="profilePreview" src="<?= htmlspecialchars($profileImg) ?>" alt="Profile" class="mb-2">
                         <form class="mt-2" action="../actions/upload_profile.php" method="POST" enctype="multipart/form-data">
                             <label for="profileImgInput">Choose Image</label>
                             <input type="file" id="profileImgInput" name="profile_pic" accept="image/*" required>
                             <button type="submit">
-                                <?php if (isset($admin['profile_pic']) && !empty($admin['profile_pic'])): ?>
-                                    Update Profile Picture
-                                <?php else: ?>
-                                    Upload
-                                <?php endif; ?>
+                                <?= !empty($admin['profile_pic']) ? 'Update Profile Picture' : 'Upload' ?>
                             </button>
                         </form>
                     </div>
-                    <h4 class="text-center">Welcome <?= $admin['name']; ?></h4>
+                    <h4 class="text-center">Welcome <?= htmlspecialchars($admin['name']) ?></h4>
                     <ul class="nav flex-column mt-4">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">User Management</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Product Management</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Orders</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-danger" href="../actions/logout.php">Logout</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link active" href="#">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">User Management</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Product Management</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
+                        <li class="nav-item"><a class="nav-link text-danger" href="../actions/logout.php">Logout</a></li>
                     </ul>
                 </div>
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h2>Data Analytics</h2>
                 </div>
                 <div class="row">
@@ -141,15 +113,6 @@ $admin = $result->fetch_assoc();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../assets/js/app.js"></script>
-    <script>
-        // Profile image preview
-        document.getElementById('profileImgInput').addEventListener('change', function(e) {
-            const [file] = e.target.files;
-            if (file) {
-                document.getElementById('profilePreview').src = URL.createObjectURL(file);
-            }
-        });
-    </script>
 </body>
 
 </html>
