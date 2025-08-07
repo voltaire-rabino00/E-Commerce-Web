@@ -60,7 +60,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                         <li class="nav-item"><a class="nav-link" href="#">User Management</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Product Management</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
-                        <li class="nav-item">  <a class="nav-link text-danger" href="../actions/logout.php" id="logoutLink">Logout</a>
+                        <li class="nav-item">  <a class="nav-link text-danger" href="../actions/logout_intermediate.php" id="logoutLink">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -119,7 +119,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
         <div class="modal-content">
             <img src="../assets/gif/Spinner-3.gif" alt="Loading..."> 
             <div id="loadingText">Logging out...</div>
-        </div>     <!-- TO DO: Add a logout gif functionality -->
+        </div> 
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
