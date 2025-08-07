@@ -1,0 +1,63 @@
+/* Error Modal Overlay */
+.error-modal-overlay {
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(35, 41, 70, 0.45);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Error Modal Content */
+.error-modal-content {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(215,38,61,0.18);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 260px;
+    min-height: 180px;
+    animation: fadeInScale 0.4s cubic-bezier(.4,2,.6,1) both;
+}
+
+.error-modal-img {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1.2rem;
+    filter: grayscale(1);
+    opacity: 0.7;
+    animation: none;
+}
+
+.error-modal-text {
+    color: #d7263d;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    text-align: center;
+}
+
+.error-modal-btn {
+    background: #232946;
+    color: #fff;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.error-modal-btn:hover {
+    background: #0093e9;
+}
+
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1); }
+}

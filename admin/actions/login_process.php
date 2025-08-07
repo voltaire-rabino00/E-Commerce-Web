@@ -13,10 +13,17 @@ if ($result && mysqli_num_rows($result) == 1) {
     if (hash('sha256', $password) == $admin['password']) {
         $_SESSION['admin'] = $admin['username'];
         header("Location: ../pages/dashboard.php");
+        exit();
     } else {
-        echo "Invalid password!";
+        $msg = urlencode("Invalid password!");
+        $back = urlencode("../actions/login.php");
+        header("Location: error_message.php?msg=$msg&back=$back");
+        exit();
     }
 } else {
-    echo "Admin not found!";
+    $msg = urlencode("Admin not found!");
+    $back = urlencode("../actions/login.php");
+    header("Location: error_message.php?msg=$msg&back=$back");
+    exit();
 }
 ?>
