@@ -29,5 +29,20 @@
             }
         });
 
-        // Profile image preview
-        
+    //   
+function showSection(sectionId, clickedLink = null) {
+  const sections = ['dashboard', 'userManagement'];
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  // Show only the selected section
+  sections.forEach(id => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.style.display = (id === sectionId) ? 'block' : 'none';
+    }
+  });
+
+  // Optional: Highlight the active link
+  navLinks.forEach(link => link.classList.remove('active'));
+  if (clickedLink) clickedLink.classList.add('active');
+}

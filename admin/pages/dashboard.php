@@ -40,7 +40,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar p-0">
                 <div class="sidebar-sticky pt-3">
-                    <h4 class="text-center mb-3">Welcome,<?= htmlspecialchars($admin['name']) ?></h4>
+                    <h4 class="text-center mb-3">Welcome, <?= htmlspecialchars($admin['name']) ?></h4>
                     <div class="d-flex flex-column align-items-center mb-3">
                         <img id="profilePreview" src="<?= htmlspecialchars($profileImg) ?>" alt="Profile"
                             class="profile-img mb-2">
@@ -56,78 +56,157 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                         </form>
                     </div>
                     <ul class="nav flex-column mt-4">
-                        <li class="nav-item"><a class="nav-link active" href="#">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">User Management</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Product Management</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Orders</a></li>
-                        <li class="nav-item">  <a class="nav-link text-danger" href="../actions/logout_intermediate.php" id="logoutLink">Logout</a>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" onclick="showSection('dashboard', this)">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showSection('userManagement', this)">User
+                                Management</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Product Management</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" href="../actions/logout_intermediate.php"
+                                id="logoutLink">Logout</a>
                         </li>
                     </ul>
                 </div>
             </nav>
+
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h2>Data Analytics</h2>
+
+                <!-- DASHBOARD SECTION -->
+                <div id="dashboard">
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h2>Data Analytics</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3 mb-4">
+                            <div class="card analytics-card text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Users</h5>
+                                    <p class="card-text display-4">123</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card analytics-card text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Orders</h5>
+                                    <p class="card-text display-4">456</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card analytics-card text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">Revenue</h5>
+                                    <p class="card-text display-4">$7,890</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card analytics-card text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">Products</h5>
+                                    <p class="card-text display-4">78</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Graph -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Orders Per Month</h5>
+                            <canvas id="ordersChart" height="80"></canvas>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-3 mb-4">
-                        <div class="card analytics-card text-center">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Users</h5>
-                                <p class="card-text display-4">123</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <div class="card analytics-card text-center">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Orders</h5>
-                                <p class="card-text display-4">456</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <div class="card analytics-card text-center">
-                            <div class="card-body">
-                                <h5 class="card-title">Revenue</h5>
-                                <p class="card-text display-4">$7,890</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <div class="card analytics-card text-center">
-                            <div class="card-body">
-                                <h5 class="card-title">Products</h5>
-                                <p class="card-text display-4">78</p>
+                <!-- END of #dashboard -->
+
+                <!-- USER MANAGEMENT SECTION -->
+                <div id="userManagement" >
+                    <h2 class="mt-4 mb-4">User Management</h2>
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover align-middle">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Password</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Jane Smith</td>
+                                            <td>janes</td>
+                                            <td>jane@example.com</td>
+                                            <td>********</td>
+                                            <td>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <button class="btn btn-info">View</button>
+                                                    <button class="btn btn-warning text-white">Update</button>
+                                                    <button class="btn btn-danger">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>John Doe</td>
+                                            <td>johnd</td>
+                                            <td>john@example.com</td>
+                                            <td>********</td>
+                                            <td>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <button class="btn btn-info">View</button>
+                                                    <button class="btn btn-warning text-white">Update</button>
+                                                    <button class="btn btn-danger">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Add more rows as needed -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Analytics Graph -->
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Orders Per Month</h5>
-                        <canvas id="ordersChart" height="80"></canvas>
-                    </div>
-                </div>
-                <!-- You can add more analytics, charts, or tables here -->
+
             </main>
         </div>
     </div>
+
+    <!-- Logout GIF Modal -->
     <div id="loadingModal_logout">
         <div class="modal-content">
-            <img src="../assets/gif/Spinner-3.gif" alt="Loading..."> 
+            <img src="../assets/gif/Spinner-3.gif" alt="Loading...">
             <div id="loadingText">Logging out...</div>
-        </div> 
+        </div>
     </div>
+
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="../assets/js/app.js"></script>
     <script src="../assets/js/update_profile.js"></script>
     <script src="../assets/js/modalGif.js"></script>
+
 </body>
 
 </html>
