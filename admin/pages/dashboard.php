@@ -156,7 +156,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                                             <td>jane@example.com</td>
                                             <td>********</td>
                                             <td>
-                                                <div class="btn-group btn-group-sm" role="group">
+                                                <div class="action-buttons">
                                                     <button class="btn btn-info">View</button>
                                                     <button class="btn btn-warning text-white">Update</button>
                                                     <button class="btn btn-danger">Delete</button>
@@ -170,7 +170,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                                             <td>john@example.com</td>
                                             <td>********</td>
                                             <td>
-                                                <div class="btn-group btn-group-sm" role="group">
+                                                <div class="action-buttons">
                                                     <button class="btn btn-info">View</button>
                                                     <button class="btn btn-warning text-white">Update</button>
                                                     <button class="btn btn-danger">Delete</button>
