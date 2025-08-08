@@ -168,21 +168,33 @@ main h2 {
 .card {
   border-radius: 0.5rem;
 }
+
+
+/* user management */
+
+/* Hide user management section by default */
 #userManagement {
   display: none;
 }
+
+/* Style for action buttons container */
 .action-buttons {
+  display: flex;
+  gap: 6px; /* Space between buttons */
+}
+
+/* Add right margin to each button, except the last */
+.action-buttons .btn {
+  margin-right: 8px;
+}
+
+.action-buttons .btn:last-child {
+  margin-right: 0;
+}
+-buttons {
   display: flex;
   gap: 6px; /* Adjust spacing between buttons */
 }
 /* Spacing between buttons */
 
 
-/* Optional: remove the right margin from the last button */
-  .action-buttons .btn {
-    margin-right: 8px;
-  }
-
-  .action-buttons .btn:last-child {
-    margin-right: 0;
-  }

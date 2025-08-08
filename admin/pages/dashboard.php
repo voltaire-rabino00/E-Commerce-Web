@@ -2,6 +2,7 @@
 include '../includes/auth.php';
 include '../includes/db.php';
 include '../actions/profile_image.php';
+include './partial/user_management.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -132,58 +133,10 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                 <!-- END of #dashboard -->
 
                 <!-- USER MANAGEMENT SECTION -->
-                <div id="userManagement" >
-                    <h2 class="mt-4 mb-4">User Management</h2>
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover align-middle">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Password</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Jane Smith</td>
-                                            <td>janes</td>
-                                            <td>jane@example.com</td>
-                                            <td>********</td>
-                                            <td>
-                                                <div class="action-buttons">
-                                                    <button class="btn btn-info">View</button>
-                                                    <button class="btn btn-warning text-white">Update</button>
-                                                    <button class="btn btn-danger">Delete</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>John Doe</td>
-                                            <td>johnd</td>
-                                            <td>john@example.com</td>
-                                            <td>********</td>
-                                            <td>
-                                                <div class="action-buttons">
-                                                    <button class="btn btn-info">View</button>
-                                                    <button class="btn btn-warning text-white">Update</button>
-                                                    <button class="btn btn-danger">Delete</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- Add more rows as needed -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                <div id="userManagement" style="display: none;">
+                    <?php include 'partials/user_management.php'; ?>
                 </div>
+
 
             </main>
         </div>
