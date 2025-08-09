@@ -2,7 +2,7 @@
 include '../includes/auth.php';
 include '../includes/db.php';
 include '../actions/profile_image.php';
-include './partial/user_management.php';
+// include './partial/user_management.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -134,7 +134,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
 
                 <!-- USER MANAGEMENT SECTION -->
                 <div id="userManagement" style="display: none;">
-                    <?php include 'partials/user_management.php'; ?>
+                    <?php include 'partial/user_management.php'; ?>
                 </div>
 
 

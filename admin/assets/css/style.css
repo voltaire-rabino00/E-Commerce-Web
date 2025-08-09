@@ -170,20 +170,16 @@ main h2 {
 }
 
 
-/* user management */
 
-/* Hide user management section by default */
 #userManagement {
   display: none;
 }
 
-/* Style for action buttons container */
 .action-buttons {
   display: flex;
-  gap: 6px; /* Space between buttons */
+  gap: 6px;
 }
 
-/* Add right margin to each button, except the last */
 .action-buttons .btn {
   margin-right: 8px;
 }
@@ -191,10 +187,6 @@ main h2 {
 .action-buttons .btn:last-child {
   margin-right: 0;
 }
--buttons {
-  display: flex;
-  gap: 6px; /* Adjust spacing between buttons */
-}
-/* Spacing between buttons */
+
 
 
