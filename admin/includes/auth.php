@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-$timeout = 300; // 300 seconds = 5 minutes
+$timeout = 10; // 300 seconds = 5 minutes
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout) {
     // Last request was more than 5 minutes ago
     session_unset();     // Unset session variables
     session_destroy();   // Destroy session
-    header("Location: ../login.php?timeout=1");
+    header("Location: ../actions/login.php?timeout=1");
     exit();
 }
 

@@ -159,7 +159,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
     <script src="../assets/js/app.js"></script>
     <script src="../assets/js/update_profile.js"></script>
     <script src="../assets/js/modalGif.js"></script>
-
+    <script src="../assets/js/auto_refresh.js"></script>
 </body>
 
 </html>
