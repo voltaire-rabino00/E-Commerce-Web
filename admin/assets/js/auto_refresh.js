@@ -1,5 +1,5 @@
     // Auto-logout after 5 minutes (300 seconds) of inactivity
-    let inactivityTimeout = 10; // seconds
+    let inactivityTimeout = 300; // seconds
     let inactivityTimer;
     function resetInactivityTimer() {
         clearTimeout(inactivityTimer);
