@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$timeout = 10; // 300 seconds = 5 minutes
+$timeout = 300; // 300 seconds = 5 minutes
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout) {
     // Last request was more than 5 minutes ago

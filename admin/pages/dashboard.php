@@ -32,6 +32,8 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/modal.css">
 </head>
@@ -58,8 +60,11 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                     </div>
                     <ul class="nav flex-column mt-4">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#" onclick="showSection('dashboard', this)">Dashboard</a>
+                            <a class="nav-link active" href="#" onclick="showSection('dashboard', this)">
+                                <i class="bi bi-bar-chart"></i> Dashboard
+                            </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#" onclick="showSection('userManagement', this)">User
                                 Management</a>
