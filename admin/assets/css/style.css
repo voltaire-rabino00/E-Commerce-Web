@@ -369,6 +369,23 @@ body.dark-theme .modal-content {
 body.dark-theme #loadingText {
     color: #ffd700 !important;
 }
+body.dark-theme table,
+body.dark-theme th,
+body.dark-theme td {
+    color: #ffd700 !important;
+    background-color: #232946 !important;
+}
+body.dark-theme .table-bordered th,
+body.dark-theme .table-bordered td {
+    border-color: #ffd700 !important;
+}
+body.dark-theme .table thead th {
+    color: #ffd700 !important;
+    background-color: #232946 !important;
+}
+body.dark-theme .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #232946 !important;
+}
 
 
 
