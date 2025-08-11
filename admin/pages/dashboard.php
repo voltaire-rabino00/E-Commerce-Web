@@ -66,25 +66,41 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="showSection('userManagement', this)">User
+                            <a class="nav-link" href="#" onclick="showSection('userManagement', this)">
+                                <i class="bi bi-people"></i> User
                                 Management</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Product Management</a>
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-box-seam"></i> Product Management
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Orders</a>
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-bag-check"></i> Orders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-danger" href="../actions/logout_intermediate.php"
-                                id="logoutLink">Logout</a>
+                            <a class="nav-link" href="#" onclick="showSection('settings', this)">
+                                <i class="bi bi-gear"></i> Settings
+                            </a>
+                        </li>
+                        <li class="nav-item mt-auto">
+                            <a class="nav-link logout" href="../actions/logout_intermediate.php" id="logoutLink">
+                                <i class="bi bi-box-arrow-right"></i> Logout
+                            </a>
                         </li>
                     </ul>
                 </div>
             </nav>
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-
+                <!-- Theme Toggle Icon -->
+                <div class="theme-toggle-container d-flex justify-content-end align-items-center"
+                    style="margin-top: 18px; margin-bottom: -30px;">
+                    <button id="themeToggleBtn" class="btn btn-light border-0" aria-label="Toggle theme">
+                        <i id="themeToggleIcon" class="bi bi-moon-stars-fill" style="font-size: 1.5rem;"></i>
+                    </button>
+                </div>
                 <!-- DASHBOARD SECTION -->
                 <div id="dashboard">
                     <div

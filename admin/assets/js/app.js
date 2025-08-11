@@ -1,4 +1,4 @@
-        const ctx = document.getElementById('ordersChart').getContext('2d');
+const ctx = document.getElementById('ordersChart').getContext('2d');
         const ordersChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -52,4 +52,37 @@
   window.onload = function () {
     showSection('dashboard');
   };
+
+// Theme toggle logic
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+const themeToggleIcon = document.getElementById('themeToggleIcon');
+
+function setTheme(isDark) {
+    if (isDark) {
+        document.body.classList.add('dark-theme');
+        if (themeToggleIcon) themeToggleIcon.className = 'bi bi-sun-fill';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.body.classList.remove('dark-theme');
+        if (themeToggleIcon) themeToggleIcon.className = 'bi bi-moon-stars-fill';
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', function() {
+        const isDark = !document.body.classList.contains('dark-theme');
+        setTheme(isDark);
+    });
+}
+
+// On page load, set theme from localStorage
+(function() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        setTheme(true);
+    } else {
+        setTheme(false);
+    }
+})();
 
