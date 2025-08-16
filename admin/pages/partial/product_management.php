@@ -8,9 +8,6 @@ $result = $conn->query($sql);
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="mb-0">Product Management</h2>
-        <a href="add_product.php" class="btn btn-primary">
-            <i class="bi bi-plus-lg"></i> Add Product
-        </a>
     </div>
 
     <div class="card shadow-sm">
@@ -27,7 +24,8 @@ $result = $conn->query($sql);
                             <th>Price</th>
                             <th>Stock</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Action
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,8 +35,8 @@ $result = $conn->query($sql);
                             <td><?= $row['id'] ?></td>
                             <td>
                                 <?php if(!empty($row['image'])): ?>
-                                <img src="../../assets/uploads/<?= htmlspecialchars($row['image']) ?>" width="60"
-                                    height="60" class="img-thumbnail">
+                                <img src="/E-Commerce-Web/admin/assets/uploads/<?= htmlspecialchars($row['image']) ?>"
+                                    width="60" height="60" class="img-thumbnail">
                                 <?php else: ?>
                                 <span class="text-muted">No image</span>
                                 <?php endif; ?>
@@ -56,6 +54,9 @@ $result = $conn->query($sql);
                                 </span>
                             </td>
                             <td>
+                                <a href="add_product.php" class="btn btn-sm btn-primary ms-2" title="Add Product">
+                                    <i class="bi bi-plus-lg"></i>
+                                </a>
                                 <a href="edit_product.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-warning">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
