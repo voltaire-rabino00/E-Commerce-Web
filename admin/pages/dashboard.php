@@ -2,7 +2,7 @@
 include '../includes/auth.php';
 include '../includes/db.php';
 include '../actions/profile_image.php';
-// include './partial/user_management.php';
+
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -70,11 +70,13 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                                 <i class="bi bi-people"></i> User
                                 Management</a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="#" onclick="showSection('productManagement', this)">
                                 <i class="bi bi-box-seam"></i> Product Management
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <i class="bi bi-bag-check"></i> Orders</a>
@@ -156,6 +158,11 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
                 <!-- USER MANAGEMENT SECTION -->
                 <div id="userManagement" style="display: none;">
                     <?php include 'partial/user_management.php'; ?>
+                </div>
+
+                <!-- Product Management -->
+                <div id="productManagement" style="display: none;">
+                    <?php include 'partial/product_management.php'; ?>
                 </div>
 
 

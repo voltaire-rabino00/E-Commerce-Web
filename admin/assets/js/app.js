@@ -32,15 +32,15 @@ const ctx = document.getElementById('ordersChart').getContext('2d');
     //   
 
   function showSection(sectionId, clickedLink = null) {
-    const sections = ['dashboard', 'userManagement'];
+    const sections = ['dashboard', 'userManagement', 'productManagement', 'settings'];
     const navLinks = document.querySelectorAll('.nav-link');
 
     // Show selected section
     sections.forEach(id => {
-      const section = document.getElementById(id);
-      if (section) {
-        section.style.display = (id === sectionId) ? 'block' : 'none';
-      }
+        const section = document.getElementById(id);
+        if (section) {
+            section.style.display = (id === sectionId) ? 'block' : 'none';
+        }
     });
 
     // Highlight nav link
@@ -85,4 +85,5 @@ if (themeToggleBtn) {
         setTheme(false);
     }
 })();
+
 

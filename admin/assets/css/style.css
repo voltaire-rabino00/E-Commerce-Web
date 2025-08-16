@@ -339,12 +339,18 @@ body.dark-theme .table-dark {
 body.dark-theme .table-bordered {
     border-color: #ffd700 !important;
 }
-body.dark-theme .btn-primary {
+body.dark-theme .btn-primary,
+body.dark-theme a.btn-primary {
     background: #ffd700 !important;
     color: #232946 !important;
     border: none;
 }
-body.dark-theme .btn-primary:hover {
+body.dark-theme a.btn-primary:hover {
+    background: #232946 !important;
+    color: #ffd700 !important;
+}
+body.dark-theme .card-header,
+body.dark-theme .card-title {
     background: #232946 !important;
     color: #ffd700 !important;
 }
