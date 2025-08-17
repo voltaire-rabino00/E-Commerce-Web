@@ -162,7 +162,7 @@ $profileImg = getProfileImage($admin['profile_pic'] ?? null);
 
                 <!-- Product Management -->
                 <div id="productManagement" style="display: none;">
-                    <?php include 'partial/product_management.php'; ?>
+                    <?php include '../view/product_view.php'; ?>
                 </div>
 
 
