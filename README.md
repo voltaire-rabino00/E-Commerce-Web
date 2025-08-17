@@ -2,7 +2,7 @@ Project Name: VoltEdge
 
 Description: E-commerce platform for gaming PCs, hardware, and accessories.”
 
--Implimenting PHP MVC Pattern
+-Implementing PHP MVC Pattern
 
 Features so far (Admin)
 -login
