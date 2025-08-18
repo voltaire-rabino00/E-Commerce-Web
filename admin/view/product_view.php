@@ -47,13 +47,16 @@ $products = $productController->getAllProducts();
                     </td>
                     <td>
                         <div class="action-buttons">
-                            <a href="add_product.php"class="btn btn-sm btn-primary ms-2" title="Add Product">
+                            <a href="add_product.php" class="btn btn-sm btn-primary ms-2" title="Add Product">
                                 <i class="bi bi-plus-lg"></i>
                             </a>
-                            <a href="edit_product.php?id=<?= $product->id ?>"   class="btn btn-sm btn-warning" title="Edit Product">
+                            <a href="edit_product.php?id=<?= $product->id ?>" class="btn btn-sm btn-warning"
+                                title="Edit Product">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <a href="../actions/delete_product.php?id=<?= $product->id ?>" onclick="return confirm('Delete this product?')" class="btn btn-sm btn-danger" title="Delete Product">
+                            <a href="../actions/delete_product.php?id=<?= $product->id ?>"
+                                onclick="return confirm('Delete this product?')" class="btn btn-sm btn-danger"
+                                title="Delete Product">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </div>
