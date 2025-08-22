@@ -27,6 +27,15 @@
         </div>
         <h2 class="mb-3 text-center">Registration Form</h2>
         <div class="mb-2">
+            <label for="InputName1" 
+                   class="form-label" >Name</label>
+            <input type="text" 
+                   class="form-control" 
+                   id="name" 
+                   name="name"
+                   placeholder="Enter your full name">
+        </div>
+        <div class="mb-2">
             <label for="InputUsername1" 
                    class="form-label" >User Name</label>
             <input type="text" 
@@ -62,10 +71,15 @@
                    name="confirmPassword" 
                    placeholder="Confirm Password">
         </div>
+        
 
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Save Password</label>
+        </div>
+
+        <div class="link">
+            <a href="#">Already have account?</a>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
