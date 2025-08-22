@@ -3,7 +3,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,8 +25,8 @@
         <div class="user-icon">
             <i class="bi bi-person-circle"></i>
         </div>
-        <h2 class="mb-4 text-center">Registration Form</h2>
-        <div class="mb-3">
+        <h2 class="mb-3 text-center">Registration Form</h2>
+        <div class="mb-2">
             <label for="InputUsername1" 
                    class="form-label" >User Name</label>
             <input type="text" 
@@ -35,10 +34,9 @@
                    id="username" 
                    name="username"
                    placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-2">
             <label for="InputEmail1">Email</label>
             <input type="text" 
                    class="form-control" 
@@ -47,7 +45,7 @@
                    placeholder="Full Name">
         </div>
 
-        <div class="mb-3">
+        <div class="mb-2">
             <label for="InputPassword1">Password</label>
             <input type="password"
                    class="form-control" 
@@ -56,7 +54,7 @@
                    placeholder="Password">
         </div>
 
-        <div class="mb-3">
+        <div class="mb-2">
             <label for="InputConfirmPassword1">Confirm Password</label>
             <input type="password"
                    class="form-control" 
