@@ -12,15 +12,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
              integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
+
     <div class="container mt-5">
     <div class="row justify-content-center">
     <div class="col-md-6 col-lg-5">
-    <form action="#" method="POST" class="container p-4 pt-5 shadow rounded bg-white" autocomplete="off">
+    <form action="#" method="POST" class="container p-4 pt-4  shadow rounded bg-white" autocomplete="off">
+        <div class="user-icon">
+            <i class="bi bi-person-circle"></i>
+        </div>
         <h2 class="mb-4 text-center">Registration Form</h2>
         <div class="mb-3">
             <label for="InputUsername1" 
@@ -70,6 +75,7 @@
     </div>
 </div>
 
-</body>
 
+
+</body>
 </html>
