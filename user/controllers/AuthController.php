@@ -1,8 +1,8 @@
 
 <?php
 
-require_once __DIR__ .'../includes/db.php';
-require_once __DIR__ .'../models/User.php';
+require_once __DIR__ .'/../includes/db.php';
+require_once __DIR__ .'/../models/User.php';
 
 class AuthController {
     private $conn;
@@ -23,12 +23,12 @@ class AuthController {
 
 $auth = new AuthController($conn);
 
-if ($_GET['action'] === 'register') {
+if ($_POST['submit'] === 'register') {
     $auth->register($_POST);
     header('Location: /login.php');
 }
 
-if ($_GET['action'] === 'login') {
+if ($_POST['submit'] === 'login') {
     if ($auth->login($_POST)) {
         header('Location: /dashboard.php');
     } else {
