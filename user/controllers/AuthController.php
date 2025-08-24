@@ -1,13 +1,13 @@
 
 <?php
 
-require_once __DIR__ .'../E-Commerce-Web/user/includes/db.php';
-require_once __DIR__ .'../E-Commerce-Web/user/models/User.php';
+require_once __DIR__ .'../includes/db.php';
+require_once __DIR__ .'../models/User.php';
 
 class AuthController {
     private $conn;
     public function __construct($conn) {
-        $this->conn = $dbConnection;
+        $this->conn = $conn;
     }
 
     public function register ($data) {

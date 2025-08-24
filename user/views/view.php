@@ -21,7 +21,7 @@
     <div class="container mt-5">
     <div class="row justify-content-center">
     <div class="col-md-6 col-lg-5">
-    <form action="#" method="POST" class="container p-4 pt-4  shadow rounded bg-white" autocomplete="off">
+    <form action="../controllers/AuthController.php" method="POST" class="container p-4 pt-4  shadow rounded bg-white" autocomplete="off">
         <div class="user-icon">
             <i class="bi bi-person-circle"></i>
         </div>
